@@ -19,8 +19,33 @@ $vowelCountTestStrings = [
 
 
 function isPalindrome(string $string){
-    #stub
-    return false;
+    $length = strlen($string);
+    $headPos = 0;
+    $tailPos = $length - 1;
+
+    //the loop should run only until the head and tail are either
+    //past each other (a negative number, found when there iss an even 
+    //number of letters) or at the same position (zero, found when 
+    //there is an odd number of letters).  There's no need to check if the center
+    //letter is equal to itself.
+    while ($tailPos - $headPos > 0) {
+        //if the character at the head position is not a letter, 
+        //move up to the next character
+        while(!ctype_alpha($string[$headPos])){
+            $headPos++;
+        }
+        //if the character at the tail position is not a letter,
+        //move down to the next character
+        while(!ctype_alpha($string[$tailPos])){
+            $tailPos--;
+        }
+        if (strtolower($string[$headPos]) != strtolower($string[$tailPos])) {
+            return false;
+        }
+        $headPos++;
+        $tailPos--;
+    }
+    return true;
 }
 
 function vowelCount(string $string){
