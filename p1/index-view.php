@@ -9,7 +9,9 @@
 
 <body>
     <h1>Project 1</h1>
-    <h2>Give me a word, I'll tell you if it's a palindrome, and how many vowels it has!</h2>
+    <h2>Give me a word!</h2>
+    <p>I'll tell you if it's a palindrome, how many vowels it has, and the resulting letter-shifted
+        word is!</p>
     <form method='POST' action='process.php' name='wordTools'>
         <label for='word'>Your word: </label>
         <input type='text' id='word' name='word' maxlength='250' autofocus placeholder='type your word here...'>
@@ -19,22 +21,13 @@
     <?php if (isset($results)) { ?>
     <h2>aaaaaand here are your results!</h2>
     <p>Your word, <em>"<?php echo $word;?>"</em>...</p>
-    <p><?php echo $isPalindrome ? "Is" : "Is not";?> a palindrome!</p>
-    <p>Contains <?php echo $vowelCount;?> <?php echo $vowelCount == 1 ? "vowel" : "vowels";?>!</p>
-    <?php      } ?>
+    <ul>
 
-    <!-- <?php
-    foreach ($palindromeTestStrings as $testString) {
-        $result = isPalindrome($testString) ? "Yes" : "No";
-        echo "Is ".$testString." a palindrome? ".$result."<br>";
-    }?>
+        <li><?php echo $isPalindrome ? "Is" : "Is not";?> a palindrome!</li>
+        <li>Contains <?php echo $vowelCount;?> <?php echo $vowelCount == 1 ? "vowel" : "vowels";?>!</li>
+        <li>Lettershifts to <strong><?php echo $shiftedString;?></strong></li>
+        <?php      } ?>
 
-    <h2>And next... how many vowels are there?</h2>
-    <?php
-    foreach ($vowelCountTestStrings as $testString) {
-        $result = vowelCount($testString);
-        echo $testString." contains ".$result." vowels<br>";
-    }?> -->
 
 
 </body>
