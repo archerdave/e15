@@ -18,9 +18,9 @@
 
     <?php if (isset($results)) { ?>
     <h2>aaaaaand here are your results!</h2>
-    Your word, <em>"<?php echo $word;?>"</em>
-    <?php echo $isPalindrome ? "is" : "is not";?> a palindrome, and
-    it contains <?php echo $vowelCount;?> <?php echo $vowelCount == 1 ? "vowel" : "vowels";?>!
+    <p>Your word, <em>"<?php echo $word;?>"</em>...</p>
+    <p><?php echo $isPalindrome ? "Is" : "Is not";?> a palindrome!</p>
+    <p>Contains <?php echo $vowelCount;?> <?php echo $vowelCount == 1 ? "vowel" : "vowels";?>!</p>
     <?php      } ?>
 
     <!-- <?php
