@@ -1,8 +1,8 @@
 <?php
 
-echo setlocale(0,"")." <BR>";
+echo setlocale(0, "")." <BR>";
 setlocale(LC_ALL, 'France');
-echo setlocale(0,"");
+echo setlocale(0, "");
 $palindromeTestStrings = [
     "madam",
     "Madam",
@@ -30,12 +30,13 @@ $vowelCountTestStrings = [
 /**
  * Determine whether a string is a palindrome.  Ignores non-alpha
  * characters.
- * 
+ *
  * String $string - the string to examine.
- * 
+ *
  * Returns true if the string is a palindrome.
  */
-function isPalindrome(string $string){
+function isPalindrome(string $string)
+{
     $result = null;
     $length = strlen($string);
     $stringStart = 0;
@@ -46,17 +47,17 @@ function isPalindrome(string $string){
     /*
     Starting at either end of the string, compare valid characters.
     */
-    while($headPosition <= $tailPosition){
-        while(!ctype_alpha($string[$headPosition])){
+    while ($headPosition <= $tailPosition) {
+        while (!ctype_alpha($string[$headPosition])) {
             $headPosition++;
-            if($headPosition > $stringEnd){
+            if ($headPosition > $stringEnd) {
                 break 2;
             }
         }
 
-        while(!ctype_alpha($string[$tailPosition])){
+        while (!ctype_alpha($string[$tailPosition])) {
             $tailPosition--;
-            if($tailPosition < $stringStart){
+            if ($tailPosition < $stringStart) {
                 break 2;
             }
         }
@@ -66,8 +67,7 @@ function isPalindrome(string $string){
         }
         if (strtolower($string[$headPosition]) == strtolower($string[$tailPosition])) {
             $result = true;
-        }
-        else {
+        } else {
             $result = false;
             break;
         }
@@ -81,12 +81,13 @@ function isPalindrome(string $string){
 
 /**
  * Count how many vowels are in a string.
- * 
+ *
  * String $string - the string to examine.
- * 
+ *
  * Returns integer representing number of vowels in the string.
  */
-function vowelCount(string $string){
+function vowelCount(string $string)
+{
     //for now, testing with unaccented, non-special vowels.
     //testing will be done by a case-insenstive comparison against
     //the letter in question
@@ -94,13 +95,13 @@ function vowelCount(string $string){
     $length = strlen($string);
     $numberOfVowels = 0;
 
-    /*  By definition in the PHP documentation 
-        (https://www.php.net/manual/en/language.types.string.php#language.types.string.details), 
-        strings are arrays of characters. Step through the string array, searching for each 
+    /*  By definition in the PHP documentation
+        (https://www.php.net/manual/en/language.types.string.php#language.types.string.details),
+        strings are arrays of characters. Step through the string array, searching for each
         character in the string in a defined array of vowels.
      */
-    for($i = 0; $i < $length; $i++){
-        if(in_array(strtolower($string[$i]),$vowels,false)){
+    for ($i = 0; $i < $length; $i++) {
+        if (in_array(strtolower($string[$i]), $vowels, false)) {
             $numberOfVowels++;
         }
     }

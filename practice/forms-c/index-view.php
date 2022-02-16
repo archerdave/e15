@@ -20,7 +20,7 @@
         <button type='submit'>Check answer</button>
     </form>
 
-    <?php if(isset($correct)) { ?>
+    <?php if (isset($correct)) { ?>
     <h1>Results</h1>
     <p>You guessed: <?php echo $answer; ?></p>
     <?php if ($correct) { ?>

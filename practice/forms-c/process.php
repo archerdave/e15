@@ -11,5 +11,5 @@ $_SESSION['results'] = [
     'correct' => $correct
 ];
 
-#redirect 
+#redirect
 header('Location: index.php');

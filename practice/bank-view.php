@@ -19,7 +19,7 @@
     </p>
 
     <ul>
-        <?php foreach($coins as $coin => $value) {?>
+        <?php foreach ($coins as $coin => $value) {?>
         <li><?php echo $coin.": ".$value;?></li>
         <?php }?>
     </ul>

@@ -9,7 +9,7 @@
 
 <body>
     <h1>Results</h1>
-    <?php if($correct) { ?>
+    <?php if ($correct) { ?>
     You are right!
     <?php } else {?>
     Nope, <a href="index.php">try again...</a>

@@ -10,7 +10,7 @@
 <body>
     <h1>Results</h1>
     <p>You guessed: <?php echo $results['answer']; ?></p>
-    <?php if($results['correct']) { ?>
+    <?php if ($results['correct']) { ?>
     You are right!
     <?php } else {?>
     Nope, <a href="index.php">try again...</a>
