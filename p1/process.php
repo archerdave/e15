@@ -2,31 +2,6 @@
 
 session_start();
 
-
-// $palindromeTestStrings = [
-//     "madam",
-//     "Madam",
-//     "adam",
-//     "race car",
-//     "Anna!",
-//     "abc!!!cba",
-//     "!",
-//     "",
-//     "E",
-//     "aáa",
-//     "aéáa",
-//     "é",
-// ];
-
-// $vowelCountTestStrings = [
-//     "aeiou",
-//     "AEIOU",
-//     "Hello World",
-//     "dry",
-//     "Bonzai?",
-//     "höláa",
-// ];
-
 /**
  * Determine whether a string is a palindrome.  Ignores non-alpha
  * characters.
@@ -105,14 +80,56 @@ function vowelCount(string $string)
     return $numberOfVowels;
 }
 
+
+/**
+ * Shifts the letters in the string down one letter.  Retains capitalization.
+ * Ignores non-letters.  Wraps around the alphabet.  A -> B, z -> a, etc.
+ *
+ * String $string - The string to process
+ *
+ * Returns a string with the modified characters
+ */
+function letterShift($string)
+{
+    $result = null;
+    $stringStart = 0;
+    $length = strlen($string) - 1;
+    $stringEnd = $length;
+
+    for ($i = $stringStart; $i <= $length; $i++) {
+        $newChar = nextChar($string[$i]);
+        $result = $result.$newChar;
+    }
+
+    return $result;
+}
+
+
+function nextChar($string)
+{
+    $char = null;
+    if ($string == 'z') {
+        $char = 'a';
+    } elseif ($string == 'Z') {
+        $char  = 'A';
+    } else {
+        $char = $string[0];
+        $char++;
+    }
+    return $char;
+}
+
+
 $word = $_POST['word'];
 
 $isPalindrome = isPalindrome($word);
 $vowelCount = vowelCount($word);
+$shiftedString = letterShift($word);
 
 $_SESSION['results'] = [
     'isPalindrome' => $isPalindrome,
     'vowelCount' => $vowelCount,
+    'shiftedString' => $shiftedString,
     'word' => $word,
 ];
 

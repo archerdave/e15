@@ -7,6 +7,7 @@ if (isset($_SESSION['results'])) {
 
     $isPalindrome = $results['isPalindrome'];
     $vowelCount = $results['vowelCount'];
+    $shiftedString = $results['shiftedString'];
     $word = $results['word'];
     $_SESSION['results'] = null;
 }
