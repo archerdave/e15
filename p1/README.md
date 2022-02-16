@@ -6,4 +6,4 @@
 N/A
 
 ## Notes for instructor
-N/A
+Neither the palindrome checker nor the vowel counter are configured to recognized accented charcters.
