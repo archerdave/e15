@@ -14,5 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return '<h1>Hear ye, hear ye!  Yonder cometh P2!!<h1>';
 });

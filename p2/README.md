@@ -3,7 +3,7 @@
 + Production URL: <http://e15p2.dharvill.me>
 
 ## Outside resources
-*your list of outside resources go here*
+*No resources used, as of yet.*
 
 ## Notes for instructor
-*any notes for me to refer to while grading; if none, omit this section*
+*No notes for the instructor at this time.*
