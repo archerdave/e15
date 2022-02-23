@@ -14,9 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return '<h1>Bookmark</h1>';
+    return view('welcome');
+});
+
+Route::get('/contact', function () {
+    return '<h1>Contact us at mail@bookmark.com</h1>';
 });
 
 Route::get('/example', function () {
-    return view('abc');
+    return response()->json([
+        'title' => 'The Great Gatsby',
+        'author' => 'F. Scott Fitzgerald',
+    ]);
 });
