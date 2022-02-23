@@ -25,11 +25,11 @@
 			"<head>",
 			"\t<meta charset='utf-8' />",
 			"\t<link href=data: , rel=icon />",
-			"\t<title>Your Title Here</title>",
+			"\t<title>$1</title>",
 			"</head>",
 			"",
 			"<body>",
-			"$1",
+			"$2",
 			"</body>",
 			"",
 			"</html>"
