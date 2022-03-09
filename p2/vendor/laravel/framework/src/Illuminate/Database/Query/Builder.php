@@ -884,6 +884,33 @@ class Builder implements BuilderContract
     }
 
     /**
+     * Add a basic "where not" clause to the query.
+     *
+     * @param  \Closure|string|array  $column
+     * @param  mixed  $operator
+     * @param  mixed  $value
+     * @param  string  $boolean
+     * @return $this
+     */
+    public function whereNot($column, $operator = null, $value = null, $boolean = 'and')
+    {
+        return $this->where($column, $operator, $value, $boolean.' not');
+    }
+
+    /**
+     * Add an "or where not" clause to the query.
+     *
+     * @param  \Closure|string|array  $column
+     * @param  mixed  $operator
+     * @param  mixed  $value
+     * @return $this
+     */
+    public function orWhereNot($column, $operator = null, $value = null)
+    {
+        return $this->whereNot($column, $operator, $value, 'or');
+    }
+
+    /**
      * Add a "where" clause comparing two columns to the query.
      *
      * @param  string|array  $first
@@ -2487,6 +2514,22 @@ class Builder implements BuilderContract
         $result = (array) $this->first([$column]);
 
         return count($result) > 0 ? reset($result) : null;
+    }
+
+    /**
+     * Get a single column's value from the first result of a query if it's the sole matching record.
+     *
+     * @param  string  $column
+     * @return mixed
+     *
+     * @throws \Illuminate\Database\RecordsNotFoundException
+     * @throws \Illuminate\Database\MultipleRecordsFoundException
+     */
+    public function soleValue($column)
+    {
+        $result = (array) $this->sole([$column]);
+
+        return reset($result);
     }
 
     /**
