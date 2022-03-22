@@ -51,24 +51,26 @@
 
 @section('output')
     @if(isset($firstName))
-        <?php dump($_GET); ?>
-
-        <svg width="650" height="450" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <svg width='650' height='450' version='1.1' xmlns='http://www.w3.org/2000/svg'>
             <defs>
-                <linearGradient id="background" x1="0" x2="0" y1="0" y2="1">
-                    <stop offset="0%" stop-color="{{$firstColor}}"/>
-                    <stop offset="100%" stop-color="{{$secondColor}}"/>
+                <linearGradient id='gradient' x1='0' x2='0' y1='0' y2='1'>
+                    <stop offset='0%' stop-color='{{$firstColor}}'/>
+                    <stop offset='100%' stop-color='{{$secondColor}}'/>
                 </linearGradient>
-                <filter id="blur">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="5"/>
+                <filter id='blur'>
+                    <feGaussianBlur in='SourceGraphic' stdDeviation='5'/>
                 </filter>
             </defs>
-            <rect x="5" y="5" rx="0" ry="0" width="640" height="430" fill="url(#background)"/>
-            <text class="name" x="30" y="50">{{$firstName}}</text>
-            <text class="name" x="30" y="80">{{$lastName}}</text>
-            <text class="name pronoun" x="30" y="105">{{$pronouns}}</text>
-            <circle class="circle" cx="570" cy="80" r="60" fill="white" filter="url(#blur)"/>
-            <image x="530" y="40" width="80" height="80" href="/images/{{$icon}}.svg"/>
+            <rect x='5' y='5' rx='0' ry='0' width='640' height='430' fill='url(#gradient)'/>
+            <text class='name' x='30' y='50'>{{$firstName}}</text>
+            @if(isset($lastName))
+                <text class='name' x='30' y='50' dy='30'>{{$lastName}}</text>
+            @endif
+            <text class='name pronoun' x='30' y='50' dy='35'>{{$pronouns}}</text>
+            @if($icon!='none')
+                <circle class='circle' cx='570' cy='80' r='60' fill='white' filter='url(#blur)'/>
+                <image x='530' y='40' width='80' height='80' href='/images/{{$icon}}.svg'/>
+            @endif
             
         </svg>
     @endif
