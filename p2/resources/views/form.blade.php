@@ -63,7 +63,7 @@
         </select><br>
 
         <input type='submit' value='create!'/>
-        <a href="/">Start Over</a>
+        <button type='button' onclick='window.location="/"'>Start Over</button>
     </form>
 </section>
 @endsection
