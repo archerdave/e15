@@ -9,7 +9,7 @@ Creating a gradient in SVG:
 Adding a drop-shadow with CSS: 
 <https://www.w3schools.com/css/css3_shadows.asp>
 
-Tiger, Dog, Unicorn, Cricket, Monkey, Owl, and Octopus Images by [Gordon Johnson](https://pixabay.com/users/gdj-1086657/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=6387503) from [Pixabay](https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=6387503)
+Tiger, Dog, Unicorn, Cricket, Monkey, Owl, and Octopus images by [Gordon Johnson](https://pixabay.com/users/gdj-1086657/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=6387503) from [Pixabay](https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=6387503)
 
 
 ## Notes for instructor
