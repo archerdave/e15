@@ -1,0 +1,10 @@
+.name {
+    fill: white;
+    font-family: Verdana;
+    text-shadow: 0px 0px 5px black;
+    font-size: 25px;
+  }
+  
+  .name.pronoun {
+    font-size: 14px;
+  }
