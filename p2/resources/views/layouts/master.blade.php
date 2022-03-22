@@ -12,18 +12,13 @@
         @yield('header')
     </header>
 
-    <section>
+    <main>
         @yield('instructions')
-    </section>
 
-    <section>
         @yield('input')
-    </section>
 
-    <section>
         @yield('output')
-    </section>
-    
+    </main>
     <footer>
         <h5>This page created as an assignment for CSCI E-15.  Spring, 2022</h5>
     </footer>
