@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    // return view('welcome');
-    return '<h1>And here ye shall find Project 2...</h1>';
+    return view('welcome');
+    // return '<h1>And here ye shall find Project 2...</h1>';
+});
+
+Route::get('/create', function () {
+    return view('form');
 });
