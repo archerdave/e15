@@ -16,12 +16,12 @@ class BackgroundController extends Controller
         $icon        = $request->input('icon', null);
         
         return view('form', [
-            'firstName' => $firstName,
-            'lastName' => $lastName,
-            'pronouns' => $pronouns,
-            'firstColor' => $firstColor,
+            'firstName'   => $firstName,
+            'lastName'    => $lastName,
+            'pronouns'    => $pronouns,
+            'firstColor'  => $firstColor,
             'secondColor' => $secondColor,
-            'icon' => $icon,
+            'icon'        => $icon,
         ]);
     }
 }
