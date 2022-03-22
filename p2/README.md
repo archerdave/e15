@@ -14,3 +14,4 @@ Tiger, Dog, Unicorn, Cricket, Monkey, Owl, and Octopus images by [Gordon Johnson
 Making an unselectable Option for a Select list header item: <https://www.w3docs.com/snippets/css/how-to-create-a-placeholder-for-an-html5-select-box-by-using-only-html-and-css.html>
 
 ## Notes for instructor
+Project inspired by Harvard's Virtual Background Generator at <https://apps.vid.harvard.edu/backgrounds/>
