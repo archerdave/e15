@@ -7,13 +7,13 @@
 @section('form')
     <form method='GET' action='image.php'>
         <label for='firstName'>First Name: </label>
-        <input type='text id='firstName' name='firstName' placeholder='Terry'/><br>
+        <input type='text' id='firstName' name='firstName' placeholder='Terry'/><br>
 
         <label for='lastName'>Last Name: </label>
-        <input type='text id='lastName' name='lastName' placeholder='Jones' /><br>
+        <input type='text' id='lastName' name='lastName' placeholder='Jones' /><br>
 
         <label for='pronouns'>Pronous: </label>
-        <input type='text id='pronouns' name='pronouns' placeholder='ix / ex' /><br>
+        <input type='text' id='pronouns' name='pronouns' placeholder='ix / ex' /><br>
 
         <label for='firstColor'>Top color: </label>
         <input type='color' id='firstColor' name='firstColor'><br>
