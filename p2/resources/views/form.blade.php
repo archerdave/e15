@@ -9,7 +9,20 @@
 @endsection
 
 @section('instructions')
-    <p>Fill out the form below, and press the create button.  The First Name and the two color 
+    <p>This will create an image that you can use as a background image in applications that run
+    virtual meetings.  This image features:
+    <ul>
+        <li>A two-tone gradient from the top of the image to the bottom</li>
+        <li>Your name in the top left corner
+        <li>Optionally, you can also add the following features
+            <ul>
+                <li>Your last name in the top left corner</li>
+                <li>Your prefered pronouns</li>
+                <li>An avatar, appearing in the top right corner</li>
+            </ul>
+        </li>
+    </ul>
+    <p>To begin, fill out the form below, and press the create button.  The First Name field and the two color 
     fields are mandatory.  You can choose the same two colors for a solid background, if you prefer.  
     All other fields are optional.</p>
 @endsection
