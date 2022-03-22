@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BackgroundController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,8 @@ Route::get('/', function () {
     // return '<h1>And here ye shall find Project 2...</h1>';
 });
 
-Route::get('/create', function () {
-    return view('form');
-});
+Route::get('/create', [BackgroundController::class, 'createImage']);
+
+// Route::get('/create', function () {
+//     // return view('form');
+// });

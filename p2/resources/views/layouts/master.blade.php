@@ -12,11 +12,11 @@
     </header>
 
     <section>
-        @yield('form')
+        @yield('input')
     </section>
 
     <section>
-        @yield('imageResult')
+        @yield('output')
     </section>
     
     <footer>
