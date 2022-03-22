@@ -64,10 +64,10 @@
             <rect x='5' y='5' rx='0' ry='0' width='640' height='430' fill='url(#gradient)'/>
             <text class='name' x='30' y='50'>{{$firstName}}</text>
             @if(isset($lastName))
-                <text class='name' x='30' y='50' dy='30'>{{$lastName}}</text>
+                <text class='name' x='30' y='80'>{{$lastName}}</text>
             @endif
-            <text class='name pronoun' x='30' y='50' dy='35'>{{$pronouns}}</text>
-            @if($icon!='none')
+            <text class='name pronoun' x='30' y={{ $lastName ? '105' : '75'}}>{{$pronouns}}</text>
+            @if(isset($icon) && $icon!='none')
                 <circle class='circle' cx='570' cy='80' r='60' fill='white' filter='url(#blur)'/>
                 <image x='530' y='40' width='80' height='80' href='/images/{{$icon}}.svg'/>
             @endif
