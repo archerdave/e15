@@ -1,3 +1,7 @@
+body {
+  max-width: 700px;
+  margin-left: 40px;
+}
 .name {
     fill: white;
     font-family: Verdana;
@@ -15,4 +19,8 @@
 
   .error {
     color: red;
+  }
+
+  fieldset {
+    margin-bottom: 20px;
   }
