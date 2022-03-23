@@ -15,11 +15,13 @@
     <main>
         @yield('instructions')
 
+        @yield('output')
+        
         @yield('input')
 
-        @yield('output')
     </main>
     <footer>
+        @yield('footer')
         <h5>This page created as an assignment for CSCI E-15.  Spring, 2022</h5>
     </footer>
 

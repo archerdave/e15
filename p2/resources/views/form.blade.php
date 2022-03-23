@@ -6,10 +6,13 @@
 
 @section('header')
     <h1>Create your own virtual meeting background</h1>
+    @if(count($errors) > 0)
+        <h3 class='error'>Image creation failed due to form errors.</h3>
+    @endif
 @endsection
 
 @section('instructions')
-<section>
+<section id='intro'>
     <h2>About this page</h2>
     <p>This will create an image that you can use as a background in applications that run
     virtual meetings.  This image features:
@@ -31,48 +34,71 @@
 @endsection
 
 @section('input')
-<section>
-    <h2>Your Data</h2>
-    <form method='GET' action='/'>
-        <label for='firstName'>First Name: </label>
-        <input type='text' id='firstName' name='firstName' placeholder='Terry' autofocus value='{{$firstName}}'/><br>
+<section id='form'>
+    <h2>Your data</h2>
+    <form method='GET' action='/process'>
+        <fieldset>
+            <legend>About You</legend>
+            <label for='firstName'>First Name: </label>
+            <input type='text' id='firstName' name='firstName' placeholder='Terry' autofocus value='{{$firstName, null}}'/>
+            @if($errors->get('firstName'))
+                <span class='error'>{{$errors->first('firstName')}}</span>
+            @endif
+            <br>
 
-        <label for='lastName'>Last Name: </label>
-        <input type='text' id='lastName' name='lastName' placeholder='Jones' value='{{$lastName}}'/><br>
+            <label for='lastName'>Last Name: </label>
+            <input type='text' id='lastName' name='lastName' placeholder='Jones' value='{{$lastName, null}}'/>
+            @if($errors->get('lastName'))
+                <span class='error'>{{$errors->first('lastName')}}</span>
+            @endif
+            <br>
 
-        <label for='pronouns'>Pronous: </label>
-        <input type='text' id='pronouns' name='pronouns' placeholder='they / their' value='{{$pronouns}}'/><br>
+            <label for='pronouns'>Pronous: </label>
+            <input type='text' id='pronouns' name='pronouns' placeholder='they / their' value='{{old('pronouns', null)}}'/>
+            @if($errors->get('pronouns'))
+                <span class='error'>{{$errors->first('pronouns')}}</span>
+            @endif
+            <br>            
+        </fieldset>
+        <fieldset>
+            <legend>Color Choices</legend>
+            <label for='firstColor'>Top color: </label>
+            <input type='color' id='firstColor' name='firstColor' value='{{old('firstColor', '#FFFFFF')}}'><br>
+            
+            <label for='secondColor'>Bottom color: </label>
+            <input type='color' id='secondColor' name='secondColor' value='{{old('secondColor', '#000000')}}'><br>
+        </fieldset>
+        <fieldset>
+            <legend>Your Avatar</legend>
+            <label for='icon'>Choose an avatar: </label>
+            <select id='icon' name='icon'>
+                <option value='' disabled {{old('icon') ? '' : 'selected'}} hidden>-- please select --</option>
+                <option value='none' {{old('icon')=='none' ? 'selected' : ''}}>no icon</option>
+                <option value='owl' {{old('icon')=='owl' ? 'selected' : ''}}>Owl</option>
+                <option value='tiger' {{old('icon')=='tiger' ? 'selected' : ''}}>Tiger</option>
+                <option value='dog' {{old('icon')=='dog' ? 'selected' : ''}}>Dog</option>
+                <option value='unicorn' {{old('icon')=='unicorn' ? 'selected' : ''}}>Unicorn</option>
+                <option value='cricket' {{old('icon')=='cricket' ? 'selected' : ''}}>Cricket</option>
+                <option value='monkey' {{old('icon')=='monkey' ? 'selected' : ''}}>Monkey</option>
+                <option value='octopus' {{old('icon')=='octopus' ? 'selected' : ''}}>Octopus</option>
+            </select>
+            @if($errors->get('icon'))
+                <span class='error'>{{$errors->first('icon')}}</span>
+            @endif
+            <br>
+            </fieldset>
 
-        <label for='firstColor'>Top color: </label>
-        <input type='color' id='firstColor' name='firstColor' value='{{$firstColor ?? "#FFFFFF"}}'><br>
-        
-        <label for='secondColor'>Bottom color: </label>
-        <input type='color' id='secondColor' name='secondColor' value='{{$secondColor ?? "#000000"}}'><br>
-
-        <label for='icon'>Choose an avatar: </label>
-        <select id='icon' name='icon'>
-            <option value='' disabled {{$icon ? '' : 'selected'}} hidden>-- please select --</option>
-            <option value='none' {{$icon=='none' ? 'selected' : ''}}>no icon</option>
-            <option value='owl' {{$icon=='owl' ? 'selected' : ''}}>Owl</option>
-            <option value='tiger' {{$icon=='tiger' ? 'selected' : ''}}>Tiger</option>
-            <option value='dog' {{$icon=='dog' ? 'selected' : ''}}>Dog</option>
-            <option value='unicorn' {{$icon=='unicorn' ? 'selected' : ''}}>Unicorn</option>
-            <option value='cricket' {{$icon=='cricket' ? 'selected' : ''}}>Cricket</option>
-            <option value='monkey' {{$icon=='monkey' ? 'selected' : ''}}>Monkey</option>
-            <option value='octopus' {{$icon=='octopus' ? 'selected' : ''}}>Octopus</option>
-        </select><br>
-
-        <input type='submit' value='create!'/>
+        <input type='submit' name='submit' value='Create Image'/>
         <button type='button' onclick='window.location="/"'>Start Over</button>
     </form>
 </section>
 @endsection
 
 @section('output')
-    @if(isset($firstName))
-        <section>
+    @if($status)
+        <section id='image'>
             <h2>Your background image</h2>
-            <svg width='650' height='450' version='1.1' xmlns='http://www.w3.org/2000/svg'>
+            <svg id='backgroundImage' width='650' height='450' version='1.1' xmlns='http://www.w3.org/2000/svg'>
                 <defs>
                     <linearGradient id='gradient' x1='0' x2='0' y1='0' y2='1'>
                         <stop offset='0%' stop-color='{{$firstColor}}'/>
@@ -93,7 +119,7 @@
                     <image x='530' y='40' width='80' height='80' href='/images/{{$icon}}.svg'/>
                 @endif
                 
-            </svg>
+            </svg><br>
         </section>
     @endif
 @endsection

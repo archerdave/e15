@@ -8,13 +8,14 @@ class BackgroundController extends Controller
 {
     public function createImage(Request $request)
     {
-        $firstName   = $request->input('firstName', null);
-        $lastName    = $request->input('lastName', null);
-        $pronouns    = $request->input('pronouns', null);
-        $firstColor  = $request->input('firstColor', null);
-        $secondColor = $request->input('secondColor', null);
-        $icon        = $request->input('icon', null);
-        
+        $firstName   = old('firstName', null);
+        $lastName    = old('lastName', null);
+        $pronouns    = old('pronouns', null);
+        $firstColor  = old('firstColor', null);
+        $secondColor = old('secondColor', null);
+        $icon        = old('icon', null);
+        $status      = session('status', null);
+
         return view('form', [
             'firstName'   => $firstName,
             'lastName'    => $lastName,
@@ -22,6 +23,21 @@ class BackgroundController extends Controller
             'firstColor'  => $firstColor,
             'secondColor' => $secondColor,
             'icon'        => $icon,
+            'status'      => $status,
         ]);
+    }
+
+    public function processForm(Request $request)
+    {
+        $request->validate([
+            'firstName'   => 'required|alpha|max:30',
+            'lastName'    => 'nullable|alpha|max:30',
+            'pronouns'    => 'nullable|max:15',
+            'firstColor'  => 'required',
+            'secondColor' => 'required',
+            'icon'        => 'required|alpha',
+        ]);
+
+        return redirect('/')->withInput()->with('status', 'success');
     }
 }

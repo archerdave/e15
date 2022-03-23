@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [BackgroundController::class, 'createImage']);
+
+Route::get('/process', [BackgroundController::class, 'processForm']);
