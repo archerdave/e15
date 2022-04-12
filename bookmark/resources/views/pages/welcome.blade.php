@@ -1,10 +1,7 @@
 @extends('layouts/main')
-
-@section('title')
-Welcome page for Project 2
-@endsection
-
+ 
 @section('content')
-    <h1>Bookmark...</h1>
-    <h2>Temporary Landing Page</h2>
+<p>
+    Welcome to Bookmark&mdash; an online book journal that lets you track and share a history of books you’ve read.
+</p>
 @endsection

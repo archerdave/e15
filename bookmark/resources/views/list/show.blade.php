@@ -1,10 +1,12 @@
 @extends('layouts/main')
 
 @section('title')
-    Contact
+Your List
 @endsection
 
 @section('content')
-    <h1>Contact</h1>
-    <p>Questions? Email us at mail@bookmark.com.</p>
+
+<h1>Your List</h1>
+Coming soon...
+
 @endsection
