@@ -4,10 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ListController;
+use App\Http\Controllers\PracticeController;
 
 //TODO : use vs import vs ... wasn't there a third namespace option?
 // ... right, namespace was the third.  Look up the differences
 //these three keywords.
+
+Route::any('/practice/{n?}', [PracticeController::class, 'index']);
 
 Route::get('/', [PageController::class, 'welcome']);
 Route::get('/contact', [PageController::class, 'contact']);
