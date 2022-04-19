@@ -65,17 +65,8 @@ class BookController extends Controller
         $searchTerms = $request->input('searchTerms', null);
         $searchType = $request->input('searchType', null);
 
-        # Load our json book data and convert it to an array
-        $bookData = file_get_contents(database_path('books.json'));
-        $books = json_decode($bookData, true);
-    
-        # Do search
-        $searchResults = [];
-        foreach ($books as $slug => $book) {
-            if (strtolower($book[$searchType]) == strtolower($searchTerms)) {
-                $searchResults[$slug] = $book;
-            }
-        }
+        # Do the search
+        $searchResults = Book::where($searchType, 'LIKE', '%'.$searchTerms.'%')->get();
     
         # Redirect back to the form with data/results stored in the session
         # Ref: https://laravel.com/docs/responses#redirecting-with-flashed-session-data
