@@ -15,23 +15,25 @@ Route::any('/practice/{n?}', [PracticeController::class, 'index']);
 Route::get('/', [PageController::class, 'welcome']);
 Route::get('/contact', [PageController::class, 'contact']);
 
-Route::get('/books', [BookController::class, 'index']);
-Route::get('/search', [BookController::class, 'search']);
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/books', [BookController::class, 'index']);
+    Route::get('/search', [BookController::class, 'search']);
 
-# Make sure the create route comes before the `/books/{slug}` route so it takes precedence
-Route::get('/books/create', [BookController::class, 'create']);
+    # Make sure the create route comes before the `/books/{slug}` route so it takes precedence
+    Route::get('/books/create', [BookController::class, 'create']);
 
-# Note the use of the post method in this route
-Route::post('/books', [BookController::class, 'store']);
+    # Note the use of the post method in this route
+    Route::post('/books', [BookController::class, 'store']);
 
-Route::get('/books/{slug}', [BookController::class, 'show']);
-Route::get('/books/filter/{category}/{subcategory}', [BookController::class, 'filter']);
+    Route::get('/books/{slug}', [BookController::class, 'show']);
+    Route::get('/books/filter/{category}/{subcategory}', [BookController::class, 'filter']);
 
-# Show the form to edit a specific book
-Route::get('/books/{slug}/edit', [BookController::class, 'edit']);
+    # Show the form to edit a specific book
+    Route::get('/books/{slug}/edit', [BookController::class, 'edit']);
 
-# Process the form to edit a specific book
-Route::put('/books/{slug}', [BookController::class, 'update']);
+    # Process the form to edit a specific book
+    Route::put('/books/{slug}', [BookController::class, 'update']);
 
 
-Route::get('/list', [ListController::class, 'show']);
+    Route::get('/list', [ListController::class, 'show']);
+});
