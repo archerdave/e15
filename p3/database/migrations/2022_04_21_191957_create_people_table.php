@@ -12,14 +12,14 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('people', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('firstName');
-            $table->string('lastName');
-            $table->string('emailAddress');
-            $table->string('password');
-        });
+        // Schema::create('people', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->timestamps();
+        //     $table->string('firstName');
+        //     $table->string('lastName');
+        //     $table->string('emailAddress');
+        //     $table->string('password');
+        // });
     }
 
     /**
@@ -29,6 +29,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('people');
+        // Schema::dropIfExists('people');
     }
 };

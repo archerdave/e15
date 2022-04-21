@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -22,7 +21,10 @@ return new class extends Migration
             $table->foreignId('twentyTimed')->constrained('scores');
             $table->foreignId('thirtyTimed')->constrained('scores');
             $table->foreignId('fortyTimed')->constrained('scores');
-            $table->foreignId('person_id')->constrained();
+            $table->foreignId('event_id')->constrained();
+            $table->foreignId('validatedBy')->constrained('users')->nullable();
+            $table->foreignId('approvedBy')->constrained('users')->nullable();
+            $table->foreignId('user_id')->constrained();
         });
     }
 

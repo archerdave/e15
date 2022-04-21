@@ -18,10 +18,7 @@ return new class extends Migration {
             $table->tinyInteger('points')->unsigned();
             $table->tinyInteger('distance')->unsigned();
             $table->boolean('isTimed');
-            $table->foreignId('validatedBy')->constrained('people');
-            $table->foreignId('approvedBy')->constrained('people');
-            $table->foreignId('archer')->constrained('people');
-            $table->foreignId('event_id')->constrained();
+            $table->foreignId('archer')->constrained('users');
         });
     }
 
