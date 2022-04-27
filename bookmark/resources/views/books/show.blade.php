@@ -25,8 +25,11 @@ Book not found. <a href='/books'>Check out the other books in our library...</a>
     <a href='{{ $book->info_url }}'>Learn more...</a>
 </p>
 
-<a href='/books/{{ $book->slug }}/edit'>Edit this book</a>
-
+<ul class='bookActions'>
+    <li><a href='/list/{{ $book->slug }}/add'>Add to your list</a></li>
+    <li><a href='/books/{{ $book->slug }}/edit'>Edit this book</a></li>
+    <li><a href='/books/{{ $book->slug }}/delete'>Delete this book</a></li>
+</ul>
 @endif
 
 @endsection
