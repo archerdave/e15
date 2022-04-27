@@ -31,6 +31,27 @@ class ListController extends Controller
         return redirect('/list')->with(['flash-alert' => 'The book '.$book->title.' was added to your list.']);
     }
 
+    public function edit(Request $request, $slug)
+    {
+        $book = $request->user()->books()->where('slug', '=', $slug)->first();
+        
+        return view('list/edit', ['book' => $book]);
+    }
+
+    public function update(Request $request, $slug)
+    {
+        $request->validate([
+            'notes' => 'string|nullable',
+        ]);
+
+        $book = $request->user()->books()->where('slug', '=', $slug)->first();
+        dump("updating notes on " . $book->title . " with \"" . $request->notes . "\"");
+        $book->pivot->notes = $request->notes;
+        $book->pivot->save();
+
+        return redirect('/list')->with(['flash-alert' => 'Your notes for '.$book->title.' were updated.']);
+    }
+    
     public function delete(Request $request, $slug)
     {
         $book = Book::findBySlug($slug);

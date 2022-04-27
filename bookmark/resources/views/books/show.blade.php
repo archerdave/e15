@@ -26,7 +26,11 @@ Book not found. <a href='/books'>Check out the other books in our library...</a>
 </p>
 
 <ul class='bookActions'>
-    <li><a href='/list/{{ $book->slug }}/add'>Add to your list</a></li>
+    @if($hasBookInList)
+        <li><a href='/list/{{ $book->slug }}/delete'>Remove from your list</a></li>
+    @else
+        <li><a href='/list/{{ $book->slug }}/add'>Add to your list</a></li>
+    @endif
     <li><a href='/books/{{ $book->slug }}/edit'>Edit this book</a></li>
     <li><a href='/books/{{ $book->slug }}/delete'>Delete this book</a></li>
 </ul>

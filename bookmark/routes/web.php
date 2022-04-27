@@ -48,6 +48,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/list', [ListController::class, 'show']);
     Route::get('/list/{slug}/add', [ListController::class, 'add']);
     Route::post('/list/{slug}/save', [ListController::class, 'save']);
+    Route::get('/list/{slug}/edit', [ListController::class, 'edit']);
+    Route::post('/list/{slug}/update', [ListController::class, 'update']);
     Route::get('/list/{slug}/delete', [ListController::class, 'delete']);
     Route::post('/list/{slug}/destroy', [ListController::class, 'destroy']);
 });

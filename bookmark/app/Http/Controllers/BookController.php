@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use App\Models\Book;
 use App\Models\Author;
+use Illuminate\Support\Facades\Auth;
+
+// use App\Modles\User;
 
 class BookController extends Controller
 {
@@ -105,9 +108,18 @@ class BookController extends Controller
     public function show($slug)
     {
         $book = Book::where('slug', '=', $slug)->first();
+        $hasBookInList = false;
+
+        $user = Auth::user();
+        $hmm = $user->books()->where('slug', '=', $slug)->first();
+        // dd($hmm);
+        if ($user->books()->where('slug', '=', $slug)->first() != null) {
+            $hasBookInList = true;
+        }
 
         return view('books/show', [
             'book' => $book,
+            'hasBookInList' => $hasBookInList,
         ]);
     }
 
