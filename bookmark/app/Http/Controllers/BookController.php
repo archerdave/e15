@@ -108,11 +108,9 @@ class BookController extends Controller
     public function show($slug)
     {
         $book = Book::where('slug', '=', $slug)->first();
+        $user = Auth::user();
         $hasBookInList = false;
 
-        $user = Auth::user();
-        $hmm = $user->books()->where('slug', '=', $slug)->first();
-        // dd($hmm);
         if ($user->books()->where('slug', '=', $slug)->first() != null) {
             $hasBookInList = true;
         }
