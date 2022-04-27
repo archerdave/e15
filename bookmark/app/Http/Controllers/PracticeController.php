@@ -11,6 +11,18 @@ use App\Models\User;
 
 class PracticeController extends Controller
 {
+    public function practice23(Request $request)
+    {
+        $result = $request->user()->books->sortByDesc('pivot.created_at');
+        dump($result);
+    }
+    public function practice22(Request $request)
+    {
+        $result = $request->user()->books->sortByDesc('created_at');
+        dump($result);
+    }
+
+
     public function practice21()
     {
         $user = User::where('email', '=', 'jamal@harvard.edu')->first();
