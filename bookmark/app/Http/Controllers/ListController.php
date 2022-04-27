@@ -30,4 +30,17 @@ class ListController extends Controller
         
         return redirect('/list')->with(['flash-alert' => 'The book '.$book->title.' was added to your list.']);
     }
+
+    public function delete(Request $request, $slug)
+    {
+        $book = Book::findBySlug($slug);
+        return view('list/delete', ['book' => $book]);
+    }
+
+    public function destroy(Request $request, $slug)
+    {
+        $book = Book::findBySlug($slug);
+        $request->user()->books()->where('slug', '=', $slug)->first()->pivot->delete();
+        return redirect('/list')->with(['flash-alert' => 'The book '.$book->title.' was removed from your list.']);
+    }
 }
