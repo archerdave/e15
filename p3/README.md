@@ -22,12 +22,16 @@
 ## Database summary
 *Describe the tables and relationships used in your database. Delete the examples below and replace with your own info.*
 
-+ My application has 3 tables in total (`users`, `movies`, `categories`)
-+ There's a many-to-many relationship between `movies` and `categories`
-+ There's a one-to-many relationship between `movies` and `users`
++ My application has 6 tables in total (`users`, `roles`, `role_user`, `events`, `scores`, `rounds`)
++ There is a many-to-many relationship between `users` and `roles` via `role_user`
++ There is a one-to-many relationship between `users` and `scores`
++ There is a one-to-many relationship between `users` and `events`
++ There are three one-to-many relationships between `users` and `rounds`
++ There is a one-to-many relationship between `events` and `rounds`
++ There are six one-to-many relationships between `scores` and `rounds`
 
 ## Outside resources
-*Your list of outside resources go here*
++https://www.w3schools.com/css/tryit.asp?filename=trycss_text-align
 
 ## Notes for instructor
 *Any notes for me to refer to while grading; if none, omit this section*

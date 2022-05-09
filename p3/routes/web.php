@@ -18,4 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dbtest', [DBTestController::class, 'test']);
+// Route::get('/dbtest', [DBTestController::class, 'test']);

@@ -1,0 +1,45 @@
+body {
+    max-width: 600px;
+    margin: auto;
+}
+
+header {
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 12px;
+}
+
+#glossaryTitle {
+    text-align: center;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    margin-bottom: 10px;
+}
+
+.loginLabel {
+    margin-right: 5px;
+}
+
+.loginField {
+    /* display: inline-block; */
+    width: 100%;
+}
+
+footer {
+    position: absolute;
+    bottom: 10px;
+    font-weight: bold;
+    font-size: 12px;
+}

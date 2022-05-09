@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->date('date');
             $table->string('location');
             $table->smallInteger('attendees')->unsigned();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('head_coach')->constrained('users', 'id');
         });
     }
 
