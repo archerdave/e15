@@ -19,6 +19,9 @@
                     <li><a href='/login'>Login</a></li>
                     <li><a href='/register'>Register</a></li>
                 @else
+                    <li><a href='/scores'>Scores</a></li>
+                    <li><a href='/rounds'>Official Rounds</a></li>
+                    <li><a href='/user/{{Auth::user()->id}}'>Your account</a></li>
                     <li><form method='POST' id='logout' action='/logout'>
                         {{ csrf_field() }}
                         <a href='#' onClick='document.getElementById("logout").submit();'>Logout</a>
@@ -28,6 +31,9 @@
                 
             </ul>
         </nav>
+        @if(Auth::user())
+            <h2>Hello {{Auth::user()->firstName}}</h2>
+        @endif
         @yield('header')
     </header>
     <main>

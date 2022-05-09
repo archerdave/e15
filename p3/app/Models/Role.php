@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class Role extends Model
 {
     use HasFactory;
 
-    public function coach()
+    public function users()
     {
-        return $this->belongsTo('App\Model\User');
+        return $this->belongsToMany('App\Model\User');
     }
 }

@@ -57,4 +57,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Model\Events');
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\Model\Roles');
+    }
 }

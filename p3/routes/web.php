@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DBTestController;
+use App\Http\Controllers\ScoresController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,5 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/scores', [ScoresController::class, 'index']);
 
 // Route::get('/dbtest', [DBTestController::class, 'test']);
