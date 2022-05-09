@@ -33,5 +33,5 @@
 *Any notes for me to refer to while grading; if none, omit this section*
 
 ## Tests
-*Include the full output of running `codecept run acceptance --steps`. If you’re taking this course for undergraduate credit and are opting out from testing, simply put "undergraduate - opting out" in this section*
+*Include the full output of running `codecept run acceptance --steps`. If you’re taking this course for undergraduate credit and are opting out from testing, simply put "undergraduate - opting out" in this section*  
 undergraduate - opting out
