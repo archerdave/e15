@@ -11,21 +11,21 @@ class Round extends Model
 
     public function archer()
     {
-        return $this->belongsTo('App\Model\User');
+        return $this->belongsTo('App\Models\User');
     }
 
     public function coach()
     {
-        return $this->belongsTo('App\Model\User');
+        return $this->belongsTo('App\Models\User');
     }
 
     public function scoreKeeper()
     {
-        return $this->belongsTo('App\Model\User');
+        return $this->belongsTo('App\Models\User');
     }
 
     public function event()
     {
-        return $this->belongsTo('App\Model\Event');
+        return $this->belongsTo('App\Models\Event');
     }
 }

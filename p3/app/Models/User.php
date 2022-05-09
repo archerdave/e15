@@ -45,21 +45,21 @@ class User extends Authenticatable
 
     public function scores()
     {
-        return $this->hasMany('App\Model\Score');
+        return $this->hasMany('App\Models\Score');
     }
 
     public function rounds()
     {
-        return $this->hasMany('App\Model\Round');
+        return $this->hasMany('App\Models\Round');
     }
 
     public function events()
     {
-        return $this->hasMany('App\Model\Events');
+        return $this->hasMany('App\Models\Events');
     }
 
     public function roles()
     {
-        return $this->belongsToMany('App\Model\Roles');
+        return $this->belongsToMany('App\Models\Role')->withTimestamps();
     }
 }
