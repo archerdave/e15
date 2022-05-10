@@ -31,9 +31,9 @@
 + There are six one-to-many relationships between `scores` and `rounds`
 
 ## Outside resources
-+https://www.w3schools.com/css/tryit.asp?filename=trycss_text-align
-+https://stackoverflow.com/questions/63620516/how-to-maintain-the-old-input-value-in-checkbox-after-validating-by-an-update-re
-+https://stackoverflow.com/questions/2906582/how-to-create-an-html-button-that-acts-like-a-link
++ https://www.w3schools.com/css/tryit.asp?filename=trycss_text-align
++ https://stackoverflow.com/questions/63620516/how-to-maintain-the-old-input-value-in-checkbox-after-validating-by-an-update-re
++ https://stackoverflow.com/questions/2906582/how-to-create-an-html-button-that-acts-like-a-link
 
 ## Notes for instructor
 *Any notes for me to refer to while grading; if none, omit this section*
