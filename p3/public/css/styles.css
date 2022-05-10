@@ -38,6 +38,21 @@ dd {
     margin-bottom: 10px;
 }
 
+tr.roles {
+    font-size: 20px;
+}
+
+td {
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+td.checkbox {
+    text-align: center;
+}
+
 footer {
     position: absolute;
     bottom: 10px;

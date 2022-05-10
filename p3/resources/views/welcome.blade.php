@@ -8,9 +8,9 @@
     <dt>Ends</dt>
     <dd>An "end" is simply a group of arrows shot at the target.  For our purposes, an <em>untimed end</em> always has six arrows.  A <em>timed end</em>  has a specific time limit, but you can shoot as many arrows as you like, so long as you do so safely.</dd>
     <dt>Scores</dt>
-    <dd>At any point, an archer may shoot an end, and say to themself "I wanna record that!".  The archer can enter that score into ASK by putting in the points scored, the distance, and whether the end was timed.  A recorded score does not have to be part of an Official Round.</dd>
+    <dd>At any point, an archer or guest may shoot an end, and say to themself "I wanna record that!".  They can enter that score into ASK by putting in the points scored, the distance, and whether the end was timed.  A recorded score does not have to be part of an Official Round.</dd>
     <dt>Official Rounds</dd>
-    <dd>An Official Round is a group of scores that are in a specific format, and occurred at a sanctioned event.  The format for an Offical Round has six ends:<dd>
+    <dd>Only Archers can record an Official Round.  An Official Round is a group of scores that are in a specific format, and occurred at a sanctioned event.  The format for an Offical Round has six ends:<dd>
         <h4>Three untimed ends (unlimited time, six arrows):</h4>
         <ul>
             <li>Twenty Yards</li>
