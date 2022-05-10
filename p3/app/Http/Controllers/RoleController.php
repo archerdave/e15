@@ -28,7 +28,7 @@ class RoleController extends Controller
         $target = User::where('id', '=', $id)->first();
         $user = Auth::user();
 
-        if ($user->hasAnyRole(['score keeper','coach'])) {
+        if ($user->hasAnyRole(['admin','coach'])) {
             return view('role/edit', ['target' => $target, 'user' => $user]);
         }
         
@@ -41,19 +41,15 @@ class RoleController extends Controller
      */
     public function update(Request $request)
     {
-        // dd($request->target);
         $target = User::where('id', '=', $request->target)->first();
-        $role = Role::where('name', '=', 'guest')->first();
 
-
-        if ($request->guest && ($request->archer || $request->coach || $request->score_keeper)) {
+        if ($request->guest && ($request->archer || $request->coach || $request->admin)) {
             echo('Cannot have Guest role and any other role at the same time');
         } else {
-            $target = User::where('id', '=', $request->target)->first();
             $guest = Role::where('name', '=', 'guest')->first();
             $archer = Role::where('name', '=', 'archer')->first();
             $coach = Role::where('name', '=', 'coach')->first();
-            $scoreKeeper = Role::where('name', '=', 'score keeper')->first();
+            $admin = Role::where('name', '=', 'admin')->first();
 
             if ($request->guest && $target->doesNotHaveRole('guest')) {
                 $target->roles()->attach($guest);
@@ -73,11 +69,13 @@ class RoleController extends Controller
                 $target->roles()->detach($coach);
             }
 
-            if ($request->score_keeper && $target->doesNotHaveRole('score keeper')) {
-                $target->roles()->attach($scoreKeeper);
-            } elseif (!$request->score_keeper && $target->HasRole('score keeper')) {
-                $target->roles()->detach($scoreKeeper);
+            if ($request->admin && $target->doesNotHaveRole('admin')) {
+                $target->roles()->attach($admin);
+            } elseif (!$request->admin && $target->HasRole('admin')) {
+                $target->roles()->detach($admin);
             }
         }
+        echo 'Changes were saved';
+        return redirect('/roles/'.$target->id.'/edit');
     }
 }

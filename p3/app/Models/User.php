@@ -76,6 +76,7 @@ class User extends Authenticatable
         if ($role != null) {
             return true;
         }
+        
         return false;
     }
 

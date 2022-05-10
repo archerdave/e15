@@ -19,7 +19,7 @@ class RolesUsersTableSeeder extends Seeder
         $archerRole = Role::where('name', '=', 'archer')->first();
         $guestRole = Role::where('name', '=', 'guest')->first();
         $coachRole = Role::where('name', '=', 'coach')->first();
-        $scoreKeeperRole = Role::where('name', '=', 'score keeper')->first();
+        $adminRole = Role::where('name', '=', 'admin')->first();
 
         //Give Jill the Archer role
         $jill = User::where('firstName', '=', 'Jill')->first();
@@ -40,6 +40,6 @@ class RolesUsersTableSeeder extends Seeder
 
         $david->roles()->save($archerRole);
         $david->roles()->save($coachRole);
-        $david->roles()->save($scoreKeeperRole);
+        $david->roles()->save($adminRole);
     }
 }

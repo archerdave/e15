@@ -31,7 +31,7 @@ class RolesTableSeeder extends Seeder
         );
 
         $role = Role::updateOrCreate(
-            ['name' => 'score keeper',
+            ['name' => 'admin',
             'description' => 'A person who can validate Official Scores, approve coaches, and is an Administrator.']
         );
     }

@@ -17,7 +17,7 @@
             <td class='checkbox'><input type='checkbox' disabled {{$user->hasRole('guest') ? 'checked' : ''}}></td>
             <td class='checkbox'><input type='checkbox' disabled {{$user->hasRole('archer') ? 'checked' : ''}}></td>
             <td class='checkbox'><input type='checkbox' disabled {{$user->hasRole('coach') ? 'checked' : ''}}></td>
-            <td class='checkbox'><input type='checkbox' disabled {{$user->hasRole('score keeper') ? 'checked' : ''}}></td>
+            <td class='checkbox'><input type='checkbox' disabled {{$user->hasRole('admin') ? 'checked' : ''}}></td>
         </tr>
     @endforeach
 </table>

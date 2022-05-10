@@ -18,7 +18,7 @@
             <td class='checkbox'><input type='checkbox' id='guest' name='guest' {{$target->hasRole('guest') ? 'checked' : ''}}></td>
             <td class='checkbox'><input type='checkbox' id='archer' name='archer' {{$target->hasRole('archer') ? 'checked' : ''}}></td>
             <td class='checkbox'><input type='checkbox' id='coach' name='coach' {{$target->hasRole('coach') ? 'checked' : ''}}></td>
-            <td class='checkbox'><input type='checkbox' id='score keeper' name='score keeper' {{$target->hasRole('score keeper') ? 'checked' : ''}}  {{$user->hasRole('score keeper') ? '' : 'disabled'}}></td>
+            <td class='checkbox'><input type='checkbox' id='admin' name='admin' {{$target->hasRole('admin') ? 'checked' : ''}}  {{$user->hasRole('admin') ? '' : 'disabled'}}></td>
             <input type='hidden' id='target' name='target' value='{{$target->id}}'>
             <td><input type='submit' value='Save'></td>
         </form>
