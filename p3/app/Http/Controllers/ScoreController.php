@@ -16,7 +16,7 @@ class ScoreController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $scores = $user->scores()->get();
+        $scores = $user->scores()->orderBy('date')->get();
 
         return view('score/index', ['user' => $user, 'scores' => $scores]);
     }
@@ -37,6 +37,43 @@ class ScoreController extends Controller
      * PUT /scores/{id}
      */
     public function update(Request $request, $scoreId)
+    {
+        $score = Score::where('id', $scoreId)->first();
+        
+        $score->date     = $request->date;
+        $score->distance = $request->distance;
+        $score->isTimed  = $request->boolean('isTimed');
+        $score->points   = $request->points;
+        
+        $score->save();
+
+        return redirect('/scores/'.$score->id.'/edit');
+    }
+
+
+    /**
+     * POST /scores
+     */
+    public function store(Request $request)
+    {
+        $score = new Score;
+
+        $score->date = $request->date;
+        $score->distance = $request->distance;
+        $score->isTimed = $request->boolean('isTimed');
+        $score->points = $request->points;
+        $score->archer_id = $request->userId;
+        
+        $score->save();
+
+        return redirect('/scores');
+    }
+
+    
+    /**
+     * POST /scores/validate
+     */
+    public function makeValidator(Request $request)
     {
         // A custom validator is required to handle the fact that the "points" maximum value varies
         // depending on the "isTimed" value.
@@ -72,18 +109,15 @@ class ScoreController extends Controller
             } elseif ($request->isTimed != 'on' && $request->points > 30) {
                 $validator->errors()->add('points', 'An untimed end cannot have more than 30 points.');
             }
-            return redirect('/scores/'.$scoreId.'/edit')->withErrors($validator)->withInput();
+            return back()->withErrors($validator)->withInput();
         }
 
-        /* END VALIDATION */
+        if ($request->nextAction == 'update') {
+            return $this->update($request, $request->scoreID);
+        }
 
-        $score = Score::where('id', $request->scoreId)->first();
-        $score->date     = $request->date;
-        $score->distance = $request->distance;
-        $score->isTimed  = $request->boolean('isTimed');
-        $score->points   = $request->points;
-        $score->save();
-
-        return redirect('/scores/'.$score->id.'/edit');
+        if ($request->nextAction == 'store') {
+            return $this->store($request);
+        }
     }
 }

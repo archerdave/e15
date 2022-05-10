@@ -53,7 +53,7 @@ td.checkbox {
     text-align: center;
 }
 
-#scoreTable input[type=number] {
+.scoreTable input[type=number] {
     width: 50px;
 }
 
