@@ -144,13 +144,6 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
-        // 'points' => [
-        //     'max:30' => 'An untimed end cannot have more than 30 points.',
-        //     'max:150' => 'A timed end cannot have more than 150 points.',
-        // ],
-        // 'isTimed' => [
-        //     'in:on' => 'Timed must be either checked or unchecked.',
-        // ],
     ],
 
     /*
