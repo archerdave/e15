@@ -24,4 +24,5 @@
         </form>
     </tr>
 </table>
+<button onClick='window.location.href="/roles"'>Cancel</button>
 @endsection
