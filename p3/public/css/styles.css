@@ -53,6 +53,15 @@ td.checkbox {
     text-align: center;
 }
 
+#scoreTable input[type=number] {
+    width: 50px;
+}
+
+.error {
+    color: darkred;
+    background-color:pink;
+}
+
 footer {
     position: absolute;
     bottom: 10px;

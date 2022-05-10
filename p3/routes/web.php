@@ -21,6 +21,8 @@ Route::get('/', [HomeController::class, 'home']);
 /* Must be logged in to access any of these routes */
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/scores', [ScoreController::class, 'index']);
+    Route::get('/scores/{id}/edit', [ScoreController::class, 'edit']);
+    Route::put('/scores/{id}', [ScoreController::class, 'update']);
 
     Route::get('/roles', [RoleController::class, 'index']);
     Route::get('/roles/{id}/edit', [RoleController::class, 'edit']);
