@@ -3,6 +3,7 @@
 @if( $scores->count() == 0 )
 <p>I'm sorry, but you don't have any scores recorded.  Maybe you should go and practice?</p>
 @else
+<h2>You have the following scores on record</h2>
 <table id='scoresTable'>
     <tr>
         <th></th>

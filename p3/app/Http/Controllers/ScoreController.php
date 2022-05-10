@@ -72,7 +72,18 @@ class ScoreController extends Controller
             } elseif ($request->isTimed != 'on' && $request->points > 30) {
                 $validator->errors()->add('points', 'An untimed end cannot have more than 30 points.');
             }
-            return redirect('scores/'.$scoreId.'/edit')->withErrors($validator)->withInput();
+            return redirect('/scores/'.$scoreId.'/edit')->withErrors($validator)->withInput();
         }
+
+        /* END VALIDATION */
+
+        $score = Score::where('id', $request->scoreId)->first();
+        $score->date     = $request->date;
+        $score->distance = $request->distance;
+        $score->isTimed  = $request->boolean('isTimed');
+        $score->points   = $request->points;
+        $score->save();
+
+        return redirect('/scores/'.$score->id.'/edit');
     }
 }
