@@ -7,7 +7,7 @@
         <th>Guest</th>
         <th>Archer</th>
         <th>Coach</th>
-        <th>Score Keeper</th>
+        <th>Admin</th>
         <th></th>
     </tr>
     <tr class='roles'>

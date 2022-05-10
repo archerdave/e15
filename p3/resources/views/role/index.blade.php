@@ -8,7 +8,7 @@
         <th>Guest</th>
         <th>Archer</th>
         <th>Coach</th>
-        <th>Score Keeper</th>
+        <th>Admin</th>
     </tr>
     @foreach($users as $user)
         <tr class='roles'>
