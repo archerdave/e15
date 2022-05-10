@@ -45,7 +45,7 @@ class User extends Authenticatable
 
     public function scores()
     {
-        return $this->hasMany('App\Models\Score');
+        return $this->hasMany('App\Models\Score', 'archer_id');
     }
 
     public function rounds()

@@ -15,10 +15,11 @@ return new class extends Migration {
         Schema::create('scores', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->date('date');
             $table->tinyInteger('points')->unsigned();
             $table->tinyInteger('distance')->unsigned();
             $table->boolean('isTimed');
-            $table->foreignId('archer')->constrained('users');
+            $table->foreignId('archer_id')->constrained('users');
         });
     }
 

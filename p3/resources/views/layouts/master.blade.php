@@ -21,7 +21,7 @@
                     @if(Auth::user()->hasRole('archer'))
                         <li><a href='/rounds'>Official Rounds</a></li>
                     @endif
-                    @if(Auth::user()->hasAnyRole(['score keeper','coach']))
+                    @if(Auth::user()->hasAnyRole(['admin','coach']))
                         <li><a href='/roles'>Manage Roles</a></li>
                     @endif
                     <li><form method='POST' id='logout' action='/logout'>

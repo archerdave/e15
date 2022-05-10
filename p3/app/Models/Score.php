@@ -13,4 +13,9 @@ class Score extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+
+    public function archer()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }

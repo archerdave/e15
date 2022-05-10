@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Controllers\DBTestController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
-use App\Http\Controllers\ScoresController;
+use App\Http\Controllers\ScoreController;
 use Illuminate\Support\Facades\Route;
 
 /*
