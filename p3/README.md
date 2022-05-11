@@ -21,8 +21,5 @@
 + https://stackoverflow.com/questions/63620516/how-to-maintain-the-old-input-value-in-checkbox-after-validating-by-an-update-re
 + https://stackoverflow.com/questions/2906582/how-to-create-an-html-button-that-acts-like-a-link
 
-## Notes for instructor
-
-
 ## Tests
 undergraduate - opting out
