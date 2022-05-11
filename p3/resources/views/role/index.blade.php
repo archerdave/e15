@@ -11,7 +11,7 @@
         <th>Admin</th>
     </tr>
     @foreach($users as $user)
-        <tr class='roles'>
+        <tr class='{{session('userId') == $user->id ? 'changed' : ''}} roles'>
             <td><a href='/roles/{{$user->id}}/edit'>edit</a></td>
             <td>{{$user->lastName}}, {{$user->firstName}}</td>
             <td class='checkbox'><input type='checkbox' disabled {{$user->hasRole('guest') ? 'checked' : ''}}></td>

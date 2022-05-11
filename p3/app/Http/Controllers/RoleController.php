@@ -14,7 +14,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::all()->sortBy('lastName')->sortBy('firstName');
 
         return view('role/index', ['users' => $users]);
     }
@@ -76,6 +76,9 @@ class RoleController extends Controller
             }
         }
         echo 'Changes were saved';
-        return redirect('/roles/'.$target->id.'/edit');
+        return redirect('/roles')->with([
+            'success' => 'Roles successfully updated',
+            'userId' => $target->id,
+        ]);
     }
 }

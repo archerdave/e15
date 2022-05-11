@@ -47,6 +47,9 @@
         @if(!$errors->isEmpty())
             <div class='failure'>
                 <p>Errors are present</p>
+                @foreach ($errors->all() as $error)
+                    {{$error}}.'<br>'
+                @endforeach
             </div>
         @endif
         @if(Auth::user())
