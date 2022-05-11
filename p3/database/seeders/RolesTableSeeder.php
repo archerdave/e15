@@ -16,11 +16,6 @@ class RolesTableSeeder extends Seeder
     public function run()
     {
         $role = Role::updateOrCreate(
-            ['name' => 'guest',
-            'description' => 'A person who can record archery scores.']
-        );
-
-        $role = Role::updateOrCreate(
             ['name' => 'archer',
             'description' => 'A person who can record Official Rounds.']
         );

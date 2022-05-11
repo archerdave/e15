@@ -17,7 +17,6 @@ class RolesUsersTableSeeder extends Seeder
     public function run()
     {
         $archerRole = Role::where('name', '=', 'archer')->first();
-        $guestRole = Role::where('name', '=', 'guest')->first();
         $coachRole = Role::where('name', '=', 'coach')->first();
         $adminRole = Role::where('name', '=', 'admin')->first();
 
@@ -27,7 +26,7 @@ class RolesUsersTableSeeder extends Seeder
 
         //Give Jamal the Guest role
         $jamal = User::where('firstName', '=', 'Jamal')->first();
-        $jamal->roles()->save($guestRole);
+        $jamal->roles()->save($archerRole);
 
         //Give Terry the Coach and Archer roles
         $terry = User::where('firstName', '=', 'Terry')->first();

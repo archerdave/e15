@@ -1,13 +1,10 @@
         <nav>
             <ul>
                 <li><a href='/'>Home</a></li>
-                <li><a href='/contact'>Contact Us</a></li>
+                <li><a href='mailto:admin@ask.p3.hes.edu'>Contact Us</a></li>
                 @if(Auth::user())
                     <li><a href='/users/{{Auth::user()->id}}'>Your account</a></li>
                     <li><a href='/scores'>Scores</a></li>
-                    @if(Auth::user()->hasRole('archer'))
-                        <li><a href='/rounds'>Official Rounds</a></li>
-                    @endif
                     @if(Auth::user()->hasAnyRole(['admin','coach']))
                         <li><a href='/roles'>Manage Roles</a></li>
                     @endif
