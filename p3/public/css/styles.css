@@ -16,6 +16,19 @@ nav ul li {
     padding: 12px;
 }
 
+.success, .failure {
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.success {
+    background-color:lightgreen;
+}
+
+.failure {
+    background-color:pink;
+}
+
 #glossaryTitle {
     text-align: center;
 }
@@ -33,10 +46,13 @@ dd {
 }
 
 .loginField {
-    /* display: inline-block; */
     width: 100%;
     margin-bottom: 10px;
 }
+
+/* table, tr, th, td {
+    border: 1px solid;
+} */
 
 tr.roles {
     font-size: 20px;
@@ -53,11 +69,15 @@ td.checkbox {
     text-align: center;
 }
 
+tr.changed {
+    background-color: palegreen;
+}
+
 .scoreTable input[type=number] {
     width: 50px;
 }
 
-.error {
+.errorMessage {
     color: darkred;
     background-color:pink;
 }

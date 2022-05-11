@@ -35,7 +35,7 @@
         <th>Points</th>
     </tr>
     @foreach($scores as $score)
-    <tr>
+    <tr class={{($score->id == session('changedId')) ?  'changed' : ''}}>
         <td><a href='/scores/{{$score->id}}/edit'>edit</a></td>
         <td>{{$score->date}}</td>
         <td>{{$score->distance}}</td>

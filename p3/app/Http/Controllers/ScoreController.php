@@ -8,6 +8,9 @@ use App\Models\User;
 use App\Models\Score;
 use Illuminate\Support\Facades\Validator;
 
+use function PHPUnit\Framework\isNan;
+use function PHPUnit\Framework\isNull;
+
 class ScoreController extends Controller
 {
     /**
@@ -16,7 +19,7 @@ class ScoreController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $scores = $user->scores()->orderBy('date')->get();
+        $scores = $user->scores()->orderByDesc('date')->get();
 
         return view('score/index', ['user' => $user, 'scores' => $scores]);
     }
@@ -39,7 +42,9 @@ class ScoreController extends Controller
     public function update(Request $request, $scoreId)
     {
         $score = Score::where('id', $scoreId)->first();
-        
+        if (is_null($score)) {
+            return back()->withInput()->with(['failure' => 'Could not locate that score ('.$scoreId.')']);
+        }
         $score->date     = $request->date;
         $score->distance = $request->distance;
         $score->isTimed  = $request->boolean('isTimed');
@@ -47,7 +52,10 @@ class ScoreController extends Controller
         
         $score->save();
 
-        return redirect('/scores/'.$score->id.'/edit');
+        return redirect('/scores')->with([
+            'success' => 'Your score was successfully updated.',
+            'changedId' => $score->id,
+        ]);
     }
 
 
@@ -66,7 +74,10 @@ class ScoreController extends Controller
         
         $score->save();
 
-        return redirect('/scores');
+        return redirect('/scores')->with([
+            'success' => 'Your new score was successfully saved.',
+            'changedId' => $score->id,
+        ]);
     }
 
     
@@ -113,7 +124,7 @@ class ScoreController extends Controller
         }
 
         if ($request->nextAction == 'update') {
-            return $this->update($request, $request->scoreID);
+            return $this->update($request, $request->scoreId);
         }
 
         if ($request->nextAction == 'store') {

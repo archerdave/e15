@@ -1,9 +1,6 @@
 @extends('layouts/master')
 
 @section('main')
-@if(!$errors->isEmpty())
-<h2 class='error'>ERRORS ARE PRESENT</h2>
-@endif
 <table class='scoreTable' id='scoreTable' name='scoreTable'>
     <tr>
         <th><label for='date'>Date</label></th>
