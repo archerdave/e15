@@ -11,7 +11,6 @@
     </tr>
     <tr>
         <form id='scoreEditForm' name='scoreEditForm' method='POST' action='/scores/validate'>
-            {{-- {{ method_field('put') }} --}}
             {{ csrf_field() }}
 
             @include('score/form')
