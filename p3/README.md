@@ -6,18 +6,15 @@
 + Users can register and log in
 + Users can update their name and email address
 + Archer can record and update scores
-+ Coaches can enter and modify events
 + Admins can modify roles
 + Roles determine permissions
 
 
   
 ## Database summary
-+ My application has 5 tables in total (`users`, `roles`, `role_user`, `events`, and `scores`)
++ My application has 5 tables in total (`users`, `roles`, `role_user`, and `scores`)
 + There is a many-to-many relationship between `users` and `roles` via `role_user`
 + There is a one-to-many relationship between `users` and `scores`
-+ There is a one-to-many relationship between `users` and `events`
-+ There is a one-to-many relationship between `events` and `scores`
 
 ## Outside resources
 + https://www.w3schools.com/css/tryit.asp?filename=trycss_text-align
